@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
+    var loginManager: UserLoginManager
     @State private var username = ""
     @State private var password = ""
     
@@ -32,9 +33,16 @@ struct LoginView: View {
                         .setTitleStyle()
                     TextField("Username", text: $username)
                     TextField("Password", text: $password)
-                    Button(action: {}, label: {
-                        Text("Sign in")
+                    Button(action: {
+                        loginManager.facebookLogin()
+                    }, label: {
+                        Text("Sign in with Facebook")
                     }).buttonStyle(MainButtonStyle())
+                    Button(action: {
+                        print("\(loginManager.isLoggedIn)")
+                    }, label: {
+                        Text("Button")
+                    })
                     Spacer()
                 }
                 .textFieldStyle(MainTextFieldStyle())
@@ -64,6 +72,6 @@ private struct BackgroundShape: Shape {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(loginManager: UserLoginManager())
     }
 }

@@ -1,0 +1,51 @@
+//
+//  LoginManager.swift
+//  Motivate
+//
+//  Created by T1001 on 2021-02-23.
+//
+
+import Foundation
+import FBSDKLoginKit
+import Firebase
+
+class UserLoginManager: ObservableObject {
+    let loginManager = LoginManager()
+    
+    @Published var isLoggedIn = Auth.auth().currentUser != nil
+    @Published var isLoading = false
+    
+    func facebookLogin() {
+        loginManager.logIn(permissions: [.publicProfile, .email], viewController: nil) { loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                break
+            case .success( _, _, let accessToken):
+                guard let token = accessToken?.tokenString else { return }
+                let credential = FacebookAuthProvider.credential(withAccessToken: token)
+                self.signIn(with: credential)
+            }
+        }
+    }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            isLoggedIn = false
+        } catch {
+            print("Could not log out!")
+        }
+    }
+    
+    private func signIn(with credential: AuthCredential) {
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if authResult != nil {
+                self.isLoggedIn = true
+            } else {
+                self.isLoggedIn = false
+            }
+        }
+    }
+}
