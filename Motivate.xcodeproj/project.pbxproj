@@ -11,6 +11,11 @@
 		A418A66425E50BCE00EAEB9D /* TextFieldViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418A66325E50BCE00EAEB9D /* TextFieldViewModifiers.swift */; };
 		A418A66925E513D200EAEB9D /* Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418A66825E513D200EAEB9D /* Align.swift */; };
 		A418A66D25E516F700EAEB9D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418A66C25E516F700EAEB9D /* MainButton.swift */; };
+		A42B90B925E57BDA00E194B8 /* Backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90B825E57BDA00E194B8 /* Backgrounds.swift */; };
+		A42B90BC25E5857600E194B8 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90BB25E5857600E194B8 /* RegisterView.swift */; };
+		A42B90BF25E58AEA00E194B8 /* EnvironmentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90BE25E58AEA00E194B8 /* EnvironmentInfo.swift */; };
+		A42B90C225E59B0B00E194B8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90C125E59B0B00E194B8 /* UIApplication.swift */; };
+		A42B90C625E59E7500E194B8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90C525E59E7500E194B8 /* String.swift */; };
 		A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */; };
 		A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */; };
 		A4F03B7D25E41DAF00B6FE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F03B7C25E41DAF00B6FE7F /* Assets.xcassets */; };
@@ -32,6 +37,11 @@
 		A418A66325E50BCE00EAEB9D /* TextFieldViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifiers.swift; sourceTree = "<group>"; };
 		A418A66825E513D200EAEB9D /* Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Align.swift; sourceTree = "<group>"; };
 		A418A66C25E516F700EAEB9D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		A42B90B825E57BDA00E194B8 /* Backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backgrounds.swift; sourceTree = "<group>"; };
+		A42B90BB25E5857600E194B8 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A42B90BE25E58AEA00E194B8 /* EnvironmentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentInfo.swift; sourceTree = "<group>"; };
+		A42B90C125E59B0B00E194B8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		A42B90C525E59E7500E194B8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A4F03B7525E41DAE00B6FE7F /* Motivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateApp.swift; sourceTree = "<group>"; };
 		A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -81,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				A418A66825E513D200EAEB9D /* Align.swift */,
+				A42B90C125E59B0B00E194B8 /* UIApplication.swift */,
+				A42B90C525E59E7500E194B8 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -89,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A418A66C25E516F700EAEB9D /* MainButton.swift */,
+				A42B90B825E57BDA00E194B8 /* Backgrounds.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -126,6 +139,7 @@
 				A4F03B8A25E41FC700B6FE7F /* Resources */,
 				A4F03B7E25E41DAF00B6FE7F /* Preview Content */,
 				A4F03B9725E4217700B6FE7F /* Constants.swift */,
+				A42B90BE25E58AEA00E194B8 /* EnvironmentInfo.swift */,
 			);
 			path = Motivate;
 			sourceTree = "<group>";
@@ -170,6 +184,7 @@
 				A4F0D90425E54EDD0063F892 /* BaseView.swift */,
 				A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */,
 				A4F0DA6625E550D5006CCAA8 /* HomeView.swift */,
+				A42B90BB25E5857600E194B8 /* RegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,11 +314,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42B90C225E59B0B00E194B8 /* UIApplication.swift in Sources */,
+				A42B90BC25E5857600E194B8 /* RegisterView.swift in Sources */,
 				A4F0DA6725E550D5006CCAA8 /* HomeView.swift in Sources */,
 				A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */,
+				A42B90C625E59E7500E194B8 /* String.swift in Sources */,
 				A418A66425E50BCE00EAEB9D /* TextFieldViewModifiers.swift in Sources */,
 				A4F0D8C625E53C6E0063F892 /* UserLoginManager.swift in Sources */,
+				A42B90BF25E58AEA00E194B8 /* EnvironmentInfo.swift in Sources */,
 				A418A66D25E516F700EAEB9D /* MainButton.swift in Sources */,
+				A42B90B925E57BDA00E194B8 /* Backgrounds.swift in Sources */,
 				A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */,
 				A418A66925E513D200EAEB9D /* Align.swift in Sources */,
 				A4F03B9825E4217700B6FE7F /* Constants.swift in Sources */,

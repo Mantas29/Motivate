@@ -28,6 +28,8 @@ extension Color {
     static let fawn = Color(red: 230 / 255, green: 170 / 255, blue: 104 / 255)
     static let vermilion = Color(red: 202 / 255, green: 60 / 255, blue: 37 / 255)
     static let blackChocolate = Color(red: 29 / 255, green: 26 / 255, blue: 5 / 255)
+    
+    static let facebookColor = Color(red: 24 / 255, green: 119 / 255, blue: 242 / 255)
 }
 
 extension View {

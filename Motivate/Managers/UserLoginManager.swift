@@ -30,6 +30,33 @@ class UserLoginManager: ObservableObject {
         }
     }
     
+    func signIn(email: String, password: String) {
+        isLoading = true
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if result != nil {
+                self.isLoggedIn = true
+            } else {
+                self.isLoggedIn = false
+            }
+            
+            self.isLoading = false
+        }
+    }
+    
+    func register(email: String, password: String) {
+        isLoading = true
+        Auth.auth().createUser(withEmail: email,
+                               password: password) { result, error in
+            if result != nil {
+                self.isLoggedIn = true
+            } else {
+                print("OOPS")
+            }
+            
+            self.isLoading = false
+        }
+    }
+    
     func signOut() {
         do {
             try Auth.auth().signOut()
