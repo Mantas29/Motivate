@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-private enum FontName: String {
+enum FontName: String {
     case regular = "JosefinSans-Regular"
     case medium = "JosefinSans-Medium"
     case bold = "JosefinSans-Bold"
 }
 
-private enum Padding {
+enum Padding {
     static let extraSmall: CGFloat = 8
     static let small: CGFloat = 16
     static let regular: CGFloat = 24
@@ -22,28 +22,32 @@ private enum Padding {
     static let extraBig: CGFloat = 40
 }
 
-extension Text {
-    private func font(_ name: FontName, size: CGFloat) -> some View {
+extension Color {
+    static let budGreen = Color(red: 127 / 255, green: 176 / 255, blue: 105 / 255)
+    static let cream = Color(red: 255 / 255, green: 251 / 255, blue: 189 / 255)
+    static let fawn = Color(red: 230 / 255, green: 170 / 255, blue: 104 / 255)
+    static let vermilion = Color(red: 202 / 255, green: 60 / 255, blue: 37 / 255)
+    static let blackChocolate = Color(red: 29 / 255, green: 26 / 255, blue: 5 / 255)
+}
+
+extension View {
+    func font(_ name: FontName, size: CGFloat) -> some View {
         self.font(.custom(name.rawValue, size: size))
     }
     
-    private func setBaselineOffsetForJosefinFont() -> Text {
-        baselineOffset(-5)
-    }
-    
     func setTitleStyle() -> some View {
-        setBaselineOffsetForJosefinFont()
-            .font(.bold, size: 24)
+        font(.bold, size: 24)
+            .foregroundColor(.blackChocolate)
     }
     
     func setCaptionStyle() -> some View {
-        setBaselineOffsetForJosefinFont()
-            .font(.medium, size: 18)
+        font(.medium, size: 18)
+            .foregroundColor(.blackChocolate)
     }
     
     func setRegularStyle() -> some View {
-        setBaselineOffsetForJosefinFont()
-            .font(.regular, size: 14)
+        font(.regular, size: 14)
+            .foregroundColor(.blackChocolate)
     }
 }
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A418A66425E50BCE00EAEB9D /* TextFieldViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418A66325E50BCE00EAEB9D /* TextFieldViewModifiers.swift */; };
+		A418A66925E513D200EAEB9D /* Align.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418A66825E513D200EAEB9D /* Align.swift */; };
+		A418A66D25E516F700EAEB9D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418A66C25E516F700EAEB9D /* MainButton.swift */; };
 		A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */; };
 		A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */; };
 		A4F03B7D25E41DAF00B6FE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F03B7C25E41DAF00B6FE7F /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A418A66325E50BCE00EAEB9D /* TextFieldViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModifiers.swift; sourceTree = "<group>"; };
+		A418A66825E513D200EAEB9D /* Align.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Align.swift; sourceTree = "<group>"; };
+		A418A66C25E516F700EAEB9D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		A4F03B7525E41DAE00B6FE7F /* Motivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateApp.swift; sourceTree = "<group>"; };
 		A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -41,6 +47,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A418A66225E50BBC00EAEB9D /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				A418A66325E50BCE00EAEB9D /* TextFieldViewModifiers.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		A418A66725E513C900EAEB9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A418A66825E513D200EAEB9D /* Align.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A418A66B25E516EB00EAEB9D /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				A418A66C25E516F700EAEB9D /* MainButton.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
 		A4F03B6C25E41DAE00B6FE7F = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +90,9 @@
 		A4F03B7725E41DAE00B6FE7F /* Motivate */ = {
 			isa = PBXGroup;
 			children = (
+				A418A66B25E516EB00EAEB9D /* ReusableViews */,
+				A418A66725E513C900EAEB9D /* Extensions */,
+				A418A66225E50BBC00EAEB9D /* ViewModifiers */,
 				A4F03B8125E41DAF00B6FE7F /* Info.plist */,
 				A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */,
 				A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */,
@@ -170,7 +203,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */,
+				A418A66425E50BCE00EAEB9D /* TextFieldViewModifiers.swift in Sources */,
+				A418A66D25E516F700EAEB9D /* MainButton.swift in Sources */,
 				A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */,
+				A418A66925E513D200EAEB9D /* Align.swift in Sources */,
 				A4F03B9825E4217700B6FE7F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
