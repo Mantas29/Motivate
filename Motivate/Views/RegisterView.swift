@@ -46,7 +46,6 @@ struct RegisterView: View {
     }
     
     private var credentialsAccepted: Bool {
-        print(email, password, confirmPassword)
         return email.isEmail && password == confirmPassword && password.isStrongPassword
     }
 }

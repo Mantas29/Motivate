@@ -46,6 +46,14 @@ struct LoginView: View {
                 }
                 
                 Button(action: {
+                    loginManager.resetPassword(email: email)
+                }, label: {
+                    Text("Forgot your password?")
+                        .foregroundColor(.blue)
+                        .setCaptionStyle()
+                })
+                
+                Button(action: {
                     loginManager.facebookLogin()
                 }, label: {
                     Text("Login with Facebook")

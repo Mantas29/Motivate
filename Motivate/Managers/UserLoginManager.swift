@@ -19,7 +19,7 @@ class UserLoginManager: ObservableObject {
         loginManager.logIn(permissions: [.publicProfile, .email], viewController: nil) { loginResult in
             switch loginResult {
             case .failed(let error):
-                print(error)
+                BaseViewModel.shared.showMessage(type: .failed, message: error.localizedDescription)
             case .cancelled:
                 break
             case .success( _, _, let accessToken):
@@ -50,10 +50,20 @@ class UserLoginManager: ObservableObject {
             if result != nil {
                 self.isLoggedIn = true
             } else {
-                print("OOPS")
+                if let error = error {
+                    BaseViewModel.shared.showMessage(type: .failed, message: error.localizedDescription)
+                }
             }
             
             self.isLoading = false
+        }
+    }
+    
+    func resetPassword(email: String) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error != nil {
+                BaseViewModel.shared.showMessage(type: .failed, message: "Please enter an email")
+            }
         }
     }
     
@@ -62,7 +72,7 @@ class UserLoginManager: ObservableObject {
             try Auth.auth().signOut()
             isLoggedIn = false
         } catch {
-            print("Could not log out!")
+            BaseViewModel.shared.showMessage(type: .failed, message: "Could not log out")
         }
     }
     

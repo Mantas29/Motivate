@@ -10,12 +10,21 @@ import SwiftUI
 struct BaseView: View {
     
     @ObservedObject var loginManager = UserLoginManager()
+    @ObservedObject var baseViewModel = BaseViewModel.shared
     
     var body: some View {
-        if loginManager.isLoggedIn {
-            HomeView(loginManager: loginManager)
-        } else {
-            LoginView(loginManager: loginManager)
+        ZStack {
+            if loginManager.isLoggedIn {
+                HomeView(loginManager: loginManager)
+            } else {
+                LoginView(loginManager: loginManager)
+            }
+            
+            if baseViewModel.shouldShowMessage {
+                baseViewModel.messageView
+                    .zIndex(1)
+                    .transition(.move(edge: .top))
+            }
         }
     }
 }
