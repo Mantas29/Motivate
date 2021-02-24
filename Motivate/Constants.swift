@@ -23,13 +23,15 @@ enum Padding {
 }
 
 extension Color {
-    static let myBlue = Color(red: 62 / 255, green: 146 / 255, blue: 204 / 255)
-    static let myGreen = Color(red: 12 / 255, green: 124 / 255, blue: 89 / 255)
-    static let myWhite = Color(red: 249 / 255, green: 231 / 255, blue: 231 / 255)
-    static let myElectric = Color(red: 125 / 255, green: 226 / 255, blue: 209 / 255)
-    static let myRed = Color(red: 214 / 255, green: 73 / 255, blue: 51 / 255)
+    static let myBlue = Color(hex: "3E92CC")
+    static let myGreen = Color(hex: "0C7C59")
+    static let myWhite = Color(hex: "F9E7E7")
+    static let myElectric = Color(hex: "7DE2D1")
+    static let myRed = Color(hex: "D64933")
     
     static let facebookColor = Color(red: 24 / 255, green: 119 / 255, blue: 242 / 255)
+    
+    static let myCyan = Color(hex: "c7eae4")
 }
 
 extension View {

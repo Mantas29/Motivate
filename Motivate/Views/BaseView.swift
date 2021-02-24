@@ -15,7 +15,7 @@ struct BaseView: View {
     var body: some View {
         ZStack {
             if loginManager.isLoggedIn {
-                HomeView(loginManager: loginManager)
+                HomeView()
             } else {
                 LoginView(loginManager: loginManager)
             }

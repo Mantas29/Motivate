@@ -9,22 +9,24 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var loginManager: UserLoginManager
-    
+    @State private var isShowPhotoLibrary = false
+    @State private var image = UIImage()
+     
     var body: some View {
         VStack {
-            Text("THIS IS A HOME VIEW")
-            Button(action: {
-                loginManager.signOut()
-            }, label: {
-                Text("Sign out")
-            })
+            Spacer()
+            TabBarView(cameraClicked: $isShowPhotoLibrary)
         }
+        .ignoresSafeArea(.all, edges: .bottom)
+        .fullScreenCover(isPresented: $isShowPhotoLibrary, content: {
+            ImagePicker(selectedImage: $image, sourceType: .camera)
+                .edgesIgnoringSafeArea(.all)
+        })
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(loginManager: UserLoginManager())
+        HomeView()
     }
 }

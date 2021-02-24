@@ -18,6 +18,9 @@
 		A42B90C625E59E7500E194B8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90C525E59E7500E194B8 /* String.swift */; };
 		A42B90C925E64DBA00E194B8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90C825E64DBA00E194B8 /* MessageView.swift */; };
 		A42B90CE25E64FB700E194B8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90CD25E64FB700E194B8 /* BaseViewModel.swift */; };
+		A42B910025E6CFCE00E194B8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90FF25E6CFCE00E194B8 /* ImagePicker.swift */; };
+		A42B910525E6E19200E194B8 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910425E6E19200E194B8 /* TabBarView.swift */; };
+		A42B910825E6E66300E194B8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910725E6E66300E194B8 /* Color.swift */; };
 		A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */; };
 		A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */; };
 		A4F03B7D25E41DAF00B6FE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F03B7C25E41DAF00B6FE7F /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		A42B90C525E59E7500E194B8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A42B90C825E64DBA00E194B8 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		A42B90CD25E64FB700E194B8 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A42B90FF25E6CFCE00E194B8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		A42B910425E6E19200E194B8 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		A42B910725E6E66300E194B8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A4F03B7525E41DAE00B6FE7F /* Motivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateApp.swift; sourceTree = "<group>"; };
 		A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 				A418A66825E513D200EAEB9D /* Align.swift */,
 				A42B90C125E59B0B00E194B8 /* UIApplication.swift */,
 				A42B90C525E59E7500E194B8 /* String.swift */,
+				A42B910725E6E66300E194B8 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 				A418A66C25E516F700EAEB9D /* MainButton.swift */,
 				A42B90B825E57BDA00E194B8 /* Backgrounds.swift */,
 				A42B90C825E64DBA00E194B8 /* MessageView.swift */,
+				A42B910425E6E19200E194B8 /* TabBarView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -117,6 +125,14 @@
 				A42B90CD25E64FB700E194B8 /* BaseViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A42B90FE25E6CFAF00E194B8 /* Representables */ = {
+			isa = PBXGroup;
+			children = (
+				A42B90FF25E6CFCE00E194B8 /* ImagePicker.swift */,
+			);
+			path = Representables;
 			sourceTree = "<group>";
 		};
 		A4F03B6C25E41DAE00B6FE7F = {
@@ -140,6 +156,7 @@
 		A4F03B7725E41DAE00B6FE7F /* Motivate */ = {
 			isa = PBXGroup;
 			children = (
+				A42B90FE25E6CFAF00E194B8 /* Representables */,
 				A42B90CB25E64DCA00E194B8 /* ViewModels */,
 				A4F0DA6525E550BE006CCAA8 /* Views */,
 				A4F0D8D525E545A70063F892 /* GoogleService-Info.plist */,
@@ -331,12 +348,15 @@
 				A42B90C225E59B0B00E194B8 /* UIApplication.swift in Sources */,
 				A42B90BC25E5857600E194B8 /* RegisterView.swift in Sources */,
 				A4F0DA6725E550D5006CCAA8 /* HomeView.swift in Sources */,
+				A42B910025E6CFCE00E194B8 /* ImagePicker.swift in Sources */,
 				A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */,
 				A42B90C625E59E7500E194B8 /* String.swift in Sources */,
 				A42B90CE25E64FB700E194B8 /* BaseViewModel.swift in Sources */,
 				A418A66425E50BCE00EAEB9D /* TextFieldViewModifiers.swift in Sources */,
 				A4F0D8C625E53C6E0063F892 /* UserLoginManager.swift in Sources */,
 				A42B90BF25E58AEA00E194B8 /* EnvironmentInfo.swift in Sources */,
+				A42B910525E6E19200E194B8 /* TabBarView.swift in Sources */,
+				A42B910825E6E66300E194B8 /* Color.swift in Sources */,
 				A418A66D25E516F700EAEB9D /* MainButton.swift in Sources */,
 				A42B90C925E64DBA00E194B8 /* MessageView.swift in Sources */,
 				A42B90B925E57BDA00E194B8 /* Backgrounds.swift in Sources */,
