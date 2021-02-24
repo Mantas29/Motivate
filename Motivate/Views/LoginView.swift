@@ -21,7 +21,7 @@ struct LoginView: View {
             
             VStack(spacing: Padding.small) {
                 Text("Welcome to Meditate")
-                    .foregroundColor(.vermilion)
+                    .foregroundColor(.myRed)
                     .font(.bold, size: 30)
                 Spacer()
                 Text("LOGIN")
@@ -36,13 +36,13 @@ struct LoginView: View {
                         loginManager.signIn(email: email, password: password)
                     }, label: {
                         Text("Sign in")
-                    }).buttonStyle(MainButtonStyle(color: .budGreen))
+                    }).buttonStyle(MainButtonStyle(color: .myGreen))
                     
                     Button(action: {
                         showRegisterSheet = true
                     }, label: {
                         Text("Register")
-                    }).buttonStyle(MainButtonStyle(color: .vermilion))
+                    }).buttonStyle(MainButtonStyle(color: .myRed))
                 }
                 
                 Button(action: {

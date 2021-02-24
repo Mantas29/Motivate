@@ -10,9 +10,9 @@ import SwiftUI
 struct MainBackground: View {
     var body: some View {
         ZStack {
-            Color.cream
+            Color.myWhite
             BackgroundShape()
-                .fill(Color.fawn)
+                .fill(Color.myElectric)
                 .frame(height: EnvironmentInfo.screenHeight * 0.8)
                 .align(.bottom)
         }

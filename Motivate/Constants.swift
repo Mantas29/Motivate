@@ -23,11 +23,11 @@ enum Padding {
 }
 
 extension Color {
-    static let budGreen = Color(red: 127 / 255, green: 176 / 255, blue: 105 / 255)
-    static let cream = Color(red: 255 / 255, green: 251 / 255, blue: 189 / 255)
-    static let fawn = Color(red: 230 / 255, green: 170 / 255, blue: 104 / 255)
-    static let vermilion = Color(red: 202 / 255, green: 60 / 255, blue: 37 / 255)
-    static let blackChocolate = Color(red: 29 / 255, green: 26 / 255, blue: 5 / 255)
+    static let myBlue = Color(red: 62 / 255, green: 146 / 255, blue: 204 / 255)
+    static let myGreen = Color(red: 12 / 255, green: 124 / 255, blue: 89 / 255)
+    static let myWhite = Color(red: 249 / 255, green: 231 / 255, blue: 231 / 255)
+    static let myElectric = Color(red: 125 / 255, green: 226 / 255, blue: 209 / 255)
+    static let myRed = Color(red: 214 / 255, green: 73 / 255, blue: 51 / 255)
     
     static let facebookColor = Color(red: 24 / 255, green: 119 / 255, blue: 242 / 255)
 }
@@ -39,17 +39,14 @@ extension View {
     
     func setTitleStyle() -> some View {
         font(.bold, size: 24)
-            .foregroundColor(.blackChocolate)
     }
     
     func setCaptionStyle() -> some View {
         font(.medium, size: 18)
-            .foregroundColor(.blackChocolate)
     }
     
     func setRegularStyle() -> some View {
         font(.regular, size: 14)
-            .foregroundColor(.blackChocolate)
     }
 }
 

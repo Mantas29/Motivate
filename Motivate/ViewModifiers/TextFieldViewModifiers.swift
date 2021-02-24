@@ -13,6 +13,6 @@ struct MainTextFieldStyle: TextFieldStyle {
             .setCaptionStyle()
             .padding(10)
             .cornerRadius(8)
-            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.vermilion, lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.myRed, lineWidth: 2))
     }
 }

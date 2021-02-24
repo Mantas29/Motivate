@@ -34,7 +34,7 @@ struct RegisterView: View {
                     }
                 }, label: {
                     Text("Confirm")
-                }).buttonStyle(MainButtonStyle(color: .budGreen))
+                }).buttonStyle(MainButtonStyle(color: .myGreen))
                 Spacer()
             }
             .setRegularPadding(.all)
