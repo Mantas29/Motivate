@@ -11,83 +11,45 @@ private enum Const {
     static let photoButtonSize: CGFloat = 70
 }
 
-enum TabItem {
-    case home
-    case library
-    case friends
-    case settings
-    
-    var selectedIcon: Image {
-        switch self {
-        case .home:
-            return Image(systemName: "house.fill")
-        case .library:
-            return Image(systemName: "list.dash")
-        case .friends:
-            return Image(systemName: "person.2.fill")
-        case .settings:
-            return Image(systemName: "gearshape.fill")
-        }
-    }
-    
-    var deselectedIcon: Image {
-        switch self {
-        case .home:
-            return Image(systemName: "house")
-        case .library:
-            return Image(systemName: "list.dash")
-        case .friends:
-            return Image(systemName: "person.2")
-        case .settings:
-            return Image(systemName: "gearshape")
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .home:
-            return "Home"
-        case .library:
-            return "Library"
-        case .friends:
-            return "Friends"
-        case .settings:
-            return "Settings"
-        }
-    }
-}
-
 struct TabBarView: View {
     
-    @State private var selectedTabItem: TabItem = .home
-    @Binding var cameraClicked: Bool
+    var model: TabBarViewModel
     
     var body: some View {
         ZStack {
             HStack {
-                ItemView(tabItem: .home, selectedTabItem: $selectedTabItem)
+                ItemView(tabItem: .home, model: model)
                 Spacer()
-                ItemView(tabItem: .library, selectedTabItem: $selectedTabItem)
+                ItemView(tabItem: .library, model: model)
                 Spacer()
                     .frame(width: Const.photoButtonSize * 1.7)
-                ItemView(tabItem: .friends, selectedTabItem: $selectedTabItem)
+                ItemView(tabItem: .friends, model: model)
                 Spacer()
-                ItemView(tabItem: .settings, selectedTabItem: $selectedTabItem)
+                ItemView(tabItem: .settings, model: model)
             }
             .setSmallPadding(.horizontal)
             .setExtraSmallPadding(.top)
             .setBigPadding(.bottom)
-            .background(Color(hex: "c7eae4"))
+            .background(Color(hex: "c7eae4")
+                            .overlay(GeometryReader { geometry in
+                                Color.clear.onAppear {
+                                    model.tabBarHeight = geometry.size.height
+                                }
+                            })
+                            .edgesIgnoringSafeArea(.bottom))
             
-            PhotoCircle(cameraClicked: $cameraClicked)
+            PhotoCircle(model: model)
                 .offset(y: -Const.photoButtonSize * 0.3)
         }
+        .align(.bottom)
     }
 }
 
 private struct PhotoCircle: View {
     
-    @Binding var cameraClicked: Bool
+    var model: TabBarViewModel
+    
+    @State private var showAlert = false
     
     var body: some View {
         Circle()
@@ -100,22 +62,40 @@ private struct PhotoCircle: View {
                         .frame(width: Const.photoButtonSize * 0.4)
                         .opacity(0.5))
             .onTapGesture {
-                cameraClicked = true
+                if MotivationGeneratorManager.shared.uiImage != nil {
+                    showAlert = true
+                    return
+                }
+                model.cameraClicked = true
             }
+            .alert(isPresented: $showAlert, content: {
+                Alert(title: Text("Would you like to take another photo?"),
+                      message: Text("Currently taken picture will be lost"),
+                      primaryButton: Alert.Button.default(Text("OK"), action: { model.cameraClicked = true }),
+                      secondaryButton: Alert.Button.cancel()
+            )})
     }
 }
 
 private struct ItemView: View {
     
     let tabItem: TabItem
-    @Binding var selectedTabItem: TabItem
+    @ObservedObject var model: TabBarViewModel
     
     private var isSelected: Bool {
-        selectedTabItem == tabItem
+        model.selectedTabItem == tabItem
     }
     
     private var icon: Image {
         isSelected ? tabItem.selectedIcon : tabItem.deselectedIcon
+    }
+    
+    private var color: Color {
+        if !model.tabBarIsActive {
+            return .gray
+        }
+        
+        return isSelected ? .myRed : .black
     }
     
     var body: some View {
@@ -128,15 +108,17 @@ private struct ItemView: View {
             Text(tabItem.title)
                 .setRegularStyle()
         }
-        .foregroundColor(isSelected ? .myRed : .black)
+        .foregroundColor(color)
         .onTapGesture {
-            selectedTabItem = tabItem
+            if model.tabBarIsActive {
+                model.selectedTabItem = tabItem
+            }
         }
     }
 }
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(cameraClicked: .constant(false))
+        TabBarView(model: TabBarViewModel())
     }
 }

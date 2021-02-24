@@ -9,19 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var isShowPhotoLibrary = false
-    @State private var image = UIImage()
+   
      
     var body: some View {
-        VStack {
-            Spacer()
-            TabBarView(cameraClicked: $isShowPhotoLibrary)
-        }
-        .ignoresSafeArea(.all, edges: .bottom)
-        .fullScreenCover(isPresented: $isShowPhotoLibrary, content: {
-            ImagePicker(selectedImage: $image, sourceType: .camera)
-                .edgesIgnoringSafeArea(.all)
-        })
+        Text("HOME")
     }
 }
 

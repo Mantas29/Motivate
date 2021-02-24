@@ -21,6 +21,10 @@
 		A42B910025E6CFCE00E194B8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B90FF25E6CFCE00E194B8 /* ImagePicker.swift */; };
 		A42B910525E6E19200E194B8 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910425E6E19200E194B8 /* TabBarView.swift */; };
 		A42B910825E6E66300E194B8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910725E6E66300E194B8 /* Color.swift */; };
+		A42B910B25E6F5D800E194B8 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910A25E6F5D800E194B8 /* TabBarViewModel.swift */; };
+		A42B910E25E6F69E00E194B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910D25E6F69E00E194B8 /* MainView.swift */; };
+		A42B911E25E7049200E194B8 /* MotivationGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */; };
+		A42B914F25E7064900E194B8 /* ImageGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B914E25E7064900E194B8 /* ImageGeneratorView.swift */; };
 		A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */; };
 		A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */; };
 		A4F03B7D25E41DAF00B6FE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F03B7C25E41DAF00B6FE7F /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 		A42B90FF25E6CFCE00E194B8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A42B910425E6E19200E194B8 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		A42B910725E6E66300E194B8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A42B910A25E6F5D800E194B8 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		A42B910D25E6F69E00E194B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationGeneratorManager.swift; sourceTree = "<group>"; };
+		A42B914E25E7064900E194B8 /* ImageGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGeneratorView.swift; sourceTree = "<group>"; };
 		A4F03B7525E41DAE00B6FE7F /* Motivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateApp.swift; sourceTree = "<group>"; };
 		A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 				A42B90B825E57BDA00E194B8 /* Backgrounds.swift */,
 				A42B90C825E64DBA00E194B8 /* MessageView.swift */,
 				A42B910425E6E19200E194B8 /* TabBarView.swift */,
+				A42B914E25E7064900E194B8 /* ImageGeneratorView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -123,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A42B90CD25E64FB700E194B8 /* BaseViewModel.swift */,
+				A42B910A25E6F5D800E194B8 /* TabBarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F0D8C525E53C6E0063F892 /* UserLoginManager.swift */,
+				A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -216,6 +227,7 @@
 				A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */,
 				A4F0DA6625E550D5006CCAA8 /* HomeView.swift */,
 				A42B90BB25E5857600E194B8 /* RegisterView.swift */,
+				A42B910D25E6F69E00E194B8 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,9 +357,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42B910B25E6F5D800E194B8 /* TabBarViewModel.swift in Sources */,
 				A42B90C225E59B0B00E194B8 /* UIApplication.swift in Sources */,
 				A42B90BC25E5857600E194B8 /* RegisterView.swift in Sources */,
 				A4F0DA6725E550D5006CCAA8 /* HomeView.swift in Sources */,
+				A42B914F25E7064900E194B8 /* ImageGeneratorView.swift in Sources */,
+				A42B911E25E7049200E194B8 /* MotivationGeneratorManager.swift in Sources */,
 				A42B910025E6CFCE00E194B8 /* ImagePicker.swift in Sources */,
 				A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */,
 				A42B90C625E59E7500E194B8 /* String.swift in Sources */,
@@ -360,6 +375,7 @@
 				A418A66D25E516F700EAEB9D /* MainButton.swift in Sources */,
 				A42B90C925E64DBA00E194B8 /* MessageView.swift in Sources */,
 				A42B90B925E57BDA00E194B8 /* Backgrounds.swift in Sources */,
+				A42B910E25E6F69E00E194B8 /* MainView.swift in Sources */,
 				A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */,
 				A418A66925E513D200EAEB9D /* Align.swift in Sources */,
 				A4F03B9825E4217700B6FE7F /* Constants.swift in Sources */,
