@@ -38,17 +38,18 @@ struct TabBarView: View {
                             })
                             .edgesIgnoringSafeArea(.bottom))
             
-            PhotoCircle(model: model)
+            PhotoButton(model: model)
                 .offset(y: -Const.photoButtonSize * 0.3)
         }
         .align(.bottom)
     }
 }
 
-private struct PhotoCircle: View {
+private struct PhotoButton: View {
     
     var model: TabBarViewModel
     
+    @ObservedObject var generator = MotivationGeneratorManager.shared
     @State private var showAlert = false
     
     var body: some View {
@@ -61,8 +62,12 @@ private struct PhotoCircle: View {
                         .scaledToFit()
                         .frame(width: Const.photoButtonSize * 0.4)
                         .opacity(0.5))
+            .overlay(Circle()
+                        .stroke(Color.myRed, lineWidth: 2)
+                        .padding(5)
+                        .opacity(generator.showPhotoPreview ? 0.8 : 0))
             .onTapGesture {
-                if MotivationGeneratorManager.shared.uiImage != nil {
+                if generator.showPhotoPreview {
                     showAlert = true
                     return
                 }

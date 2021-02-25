@@ -69,8 +69,8 @@ class TabBarViewModel: ObservableObject {
     }
     
     private func setObservers() {
-        generatorImageObserver = MotivationGeneratorManager.shared.$uiImage.sink { [weak self] image in
-            self?.tabBarIsActive = image == nil
+        generatorImageObserver = MotivationGeneratorManager.shared.$showPhotoPreview.sink { [weak self] show in
+            self?.tabBarIsActive = !show
         }
     }
 }
