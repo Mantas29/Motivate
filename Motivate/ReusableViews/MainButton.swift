@@ -13,6 +13,7 @@ struct MainButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
             configuration.label
+                .foregroundColor(foregroundColor)
                 .setCaptionStyle()
                 .setSmallPadding(.vertical)
                 .setBigPadding(.horizontal)
@@ -20,6 +21,15 @@ struct MainButtonStyle: ButtonStyle {
                 .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(color))
                 .scaleEffect(configuration.isPressed ? 0.95: 1)
         }
+    
+    var foregroundColor: Color {
+        switch color {
+        case .myRed, .myBlue, .myGreen:
+            return .white
+        default:
+            return .black
+        }
+    }
 }
 
 struct FacebookButtonStyle: ButtonStyle {

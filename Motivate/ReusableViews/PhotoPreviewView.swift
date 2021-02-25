@@ -14,7 +14,7 @@ private enum Const {
 
 struct PhotoPreviewView: View {
     
-    @ObservedObject var generator = MotivationGeneratorManager.shared
+    @ObservedObject private var generator = MotivationGeneratorManager.shared
     
     @State private var yOffset = CGFloat.zero
     let closeAction: () -> Void
@@ -41,13 +41,15 @@ struct PhotoPreviewView: View {
                     .overlay(RoundedRectangle(cornerRadius: 30)
                                 .stroke(Color.blue, lineWidth: 2))
                     .setExtraSmallPadding(.all)
+            } else {
+                ProgressView()
             }
             
             Button(action: {
                 generator.processImage()
             }, label: {
-                Text("Beautify!")
-            }).buttonStyle(MainButtonStyle(color: .myBlue))
+                Text("Motivate!")
+            }).buttonStyle(MainButtonStyle(color: .myRed))
             
             Spacer()
         }
@@ -77,8 +79,8 @@ struct PhotoPreviewView: View {
     }
 }
 
-//struct ImageGeneratorView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageGeneratorView(image: UIImage(), closeAction: {})
-//    }
-//}
+struct PhotoPreviewView_Previews: PreviewProvider {
+    static var previews: some View {
+        PhotoPreviewView(closeAction: {})
+    }
+}
