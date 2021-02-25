@@ -15,13 +15,13 @@ class ImageFilterManager {
     var filter = CIFilter.sepiaTone()
     let context = CIContext()
     
-    func applyProcessing() -> UIImage? {
+    func applyProcessing(orientation: UIImage.Orientation) -> UIImage? {
         
-        filter.intensity = Float.random(in: 0...1)
+        filter.intensity = Float.random(in: 0.3...0.8)
         guard let outputImage = filter.outputImage else { return nil }
         
         if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-            return UIImage(cgImage: cgImage)
+            return UIImage(cgImage: cgImage, scale: 1, orientation: orientation)
         }
         
         return nil

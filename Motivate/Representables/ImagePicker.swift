@@ -10,12 +10,10 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     
-    @Binding var selectedImage: UIImage?
-    @Binding var showPhotoPreview: Bool
+    var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    let imagePickedCompletion: (UIImage) -> Void
     @Environment(\.presentationMode) private var presentationMode
     
-    var sourceType: UIImagePickerController.SourceType = .photoLibrary
- 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
  
         let imagePicker = UIImagePickerController()
@@ -45,12 +43,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
      
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                
-                parent.selectedImage = image
-                
-                withAnimation(.spring()) {
-                    parent.showPhotoPreview = true
-                }
+                parent.imagePickedCompletion(image)
             }
      
             parent.presentationMode.wrappedValue.dismiss()

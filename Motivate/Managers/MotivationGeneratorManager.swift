@@ -13,18 +13,29 @@ class MotivationGeneratorManager: ObservableObject {
     
     static var shared = MotivationGeneratorManager()
     
-    @Published var uiImage: UIImage?
+    var originalImage: UIImage?
+    @Published private(set) var processedImage: UIImage?
     @Published var showPhotoPreview = false
     
-    let imageFilterManager = ImageFilterManager()
-    
     func processImage() {
-        guard let image = uiImage else { return }
+        guard let image = originalImage else { return }
         
-        let beginImage = CIImage(image: image)
-        imageFilterManager.filter.setValue(beginImage, forKey: kCIInputImageKey)
-        if let processedImage = imageFilterManager.applyProcessing() {
-            uiImage = processedImage
+        let imageFilterManager = ImageFilterManager()
+        let orientation = image.imageOrientation
+        let ciImage = CIImage(image: image)
+        
+        imageFilterManager.filter.setValue(ciImage, forKey: kCIInputImageKey)
+        
+        if let newImage = imageFilterManager.applyProcessing(orientation: orientation) {
+            processedImage = newImage
+        }
+    }
+    
+    func setImage(uiImage: UIImage) {
+        originalImage = uiImage
+        processedImage = uiImage
+        withAnimation(.spring()) {
+            showPhotoPreview = true
         }
     }
 }

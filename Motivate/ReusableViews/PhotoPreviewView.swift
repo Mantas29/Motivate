@@ -33,7 +33,7 @@ struct PhotoPreviewView: View {
                     }
                 }
             
-            if let uiImage = generator.uiImage {
+            if let uiImage = generator.processedImage {
                 Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFit()
@@ -43,12 +43,13 @@ struct PhotoPreviewView: View {
                     .setExtraSmallPadding(.all)
             }
             
-            Spacer()
             Button(action: {
                 generator.processImage()
             }, label: {
                 Text("Beautify!")
             }).buttonStyle(MainButtonStyle(color: .myBlue))
+            
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)

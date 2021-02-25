@@ -39,8 +39,10 @@ struct MainView: View {
         }
         .ignoresSafeArea(.all, edges: .bottom)
         .fullScreenCover(isPresented: $model.cameraClicked, content: {
-            ImagePicker(selectedImage: $generator.uiImage, showPhotoPreview: $generator.showPhotoPreview, sourceType: .camera)
-                .edgesIgnoringSafeArea(.all)
+            ImagePicker(sourceType: .camera) { image in
+                generator.setImage(uiImage: image)
+            }
+            .edgesIgnoringSafeArea(.all)
         })
     }
 }
