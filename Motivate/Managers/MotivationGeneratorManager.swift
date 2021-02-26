@@ -22,7 +22,7 @@ class MotivationGeneratorManager: ObservableObject {
     
     func processImage() {
         if let image = originalImage {
-            processedImage = image.addFilter(filter: .Mono)
+            processedImage = image.addFilter(type: .median)
             currentQuote = Quotes.randomQuoteText()
         }
     }

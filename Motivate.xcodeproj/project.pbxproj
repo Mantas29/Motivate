@@ -25,7 +25,6 @@
 		A42B910E25E6F69E00E194B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B910D25E6F69E00E194B8 /* MainView.swift */; };
 		A42B911E25E7049200E194B8 /* MotivationGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */; };
 		A42B914F25E7064900E194B8 /* PhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B914E25E7064900E194B8 /* PhotoPreviewView.swift */; };
-		A42B915C25E7B3E600E194B8 /* ImageFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B915B25E7B3E600E194B8 /* ImageFilterManager.swift */; };
 		A42B916425E8F68000E194B8 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B916325E8F68000E194B8 /* Quotes.swift */; };
 		A452F7D525E904E500DDFB14 /* AkayaTelivigala-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452F7D425E904E500DDFB14 /* AkayaTelivigala-Regular.ttf */; };
 		A452F7D925E9053B00DDFB14 /* ArchitectsDaughter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A42B916725E8FF8700E194B8 /* ArchitectsDaughter-Regular.ttf */; };
@@ -33,6 +32,7 @@
 		A452F7E825E906F100DDFB14 /* FjallaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452F7E725E906F100DDFB14 /* FjallaOne-Regular.ttf */; };
 		A452F7EB25E9192B00DDFB14 /* LongCang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452F7EA25E9192B00DDFB14 /* LongCang-Regular.ttf */; };
 		A452F7F225E91FFC00DDFB14 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452F7F125E91FFC00DDFB14 /* UIImage.swift */; };
+		A452F7F525E935B800DDFB14 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452F7F425E935B800DDFB14 /* View.swift */; };
 		A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */; };
 		A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */; };
 		A4F03B7D25E41DAF00B6FE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F03B7C25E41DAF00B6FE7F /* Assets.xcassets */; };
@@ -68,7 +68,6 @@
 		A42B910D25E6F69E00E194B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationGeneratorManager.swift; sourceTree = "<group>"; };
 		A42B914E25E7064900E194B8 /* PhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewView.swift; sourceTree = "<group>"; };
-		A42B915B25E7B3E600E194B8 /* ImageFilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterManager.swift; sourceTree = "<group>"; };
 		A42B916325E8F68000E194B8 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		A42B916725E8FF8700E194B8 /* ArchitectsDaughter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchitectsDaughter-Regular.ttf"; sourceTree = "<group>"; };
 		A452F7D425E904E500DDFB14 /* AkayaTelivigala-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkayaTelivigala-Regular.ttf"; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		A452F7E725E906F100DDFB14 /* FjallaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FjallaOne-Regular.ttf"; sourceTree = "<group>"; };
 		A452F7EA25E9192B00DDFB14 /* LongCang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LongCang-Regular.ttf"; sourceTree = "<group>"; };
 		A452F7F125E91FFC00DDFB14 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		A452F7F425E935B800DDFB14 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A4F03B7525E41DAE00B6FE7F /* Motivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateApp.swift; sourceTree = "<group>"; };
 		A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 				A42B90C525E59E7500E194B8 /* String.swift */,
 				A42B910725E6E66300E194B8 /* Color.swift */,
 				A452F7F125E91FFC00DDFB14 /* UIImage.swift */,
+				A452F7F425E935B800DDFB14 /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,7 +240,6 @@
 			children = (
 				A4F0D8C525E53C6E0063F892 /* UserLoginManager.swift */,
 				A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */,
-				A42B915B25E7B3E600E194B8 /* ImageFilterManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -400,6 +400,7 @@
 				A452F7F225E91FFC00DDFB14 /* UIImage.swift in Sources */,
 				A4F0D8C625E53C6E0063F892 /* UserLoginManager.swift in Sources */,
 				A42B90BF25E58AEA00E194B8 /* EnvironmentInfo.swift in Sources */,
+				A452F7F525E935B800DDFB14 /* View.swift in Sources */,
 				A42B910525E6E19200E194B8 /* TabBarView.swift in Sources */,
 				A42B910825E6E66300E194B8 /* Color.swift in Sources */,
 				A42B916425E8F68000E194B8 /* Quotes.swift in Sources */,
@@ -411,7 +412,6 @@
 				A418A66925E513D200EAEB9D /* Align.swift in Sources */,
 				A4F03B9825E4217700B6FE7F /* Constants.swift in Sources */,
 				A4F0D90525E54EDD0063F892 /* BaseView.swift in Sources */,
-				A42B915C25E7B3E600E194B8 /* ImageFilterManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
