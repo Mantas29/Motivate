@@ -14,26 +14,23 @@ class MotivationGeneratorManager: ObservableObject {
     static var shared = MotivationGeneratorManager()
     
     var originalImage: UIImage?
+    
     @Published private(set) var processedImage: UIImage?
+    @Published private(set) var currentQuote: String?
+    
     @Published var showPhotoPreview = false
     
     func processImage() {
-        guard let image = originalImage else { return }
-        
-        let imageFilterManager = ImageFilterManager()
-        let orientation = image.imageOrientation
-        let ciImage = CIImage(image: image)
-        
-        imageFilterManager.filter.setValue(ciImage, forKey: kCIInputImageKey)
-        
-        if let newImage = imageFilterManager.applyProcessing(orientation: orientation) {
-            processedImage = newImage
+        if let image = originalImage {
+            processedImage = image.addFilter(filter: .Mono)
+            currentQuote = Quotes.randomQuoteText()
         }
     }
     
     func setImage(uiImage: UIImage) {
         originalImage = uiImage
         processedImage = uiImage
+        currentQuote = nil
         withAnimation(.spring()) {
             showPhotoPreview = true
         }

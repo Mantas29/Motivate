@@ -56,6 +56,12 @@
 		<string>JosefinSans-Regular.ttf</string>
 		<string>JosefinSans-Medium.ttf</string>
 		<string>JosefinSans-Bold.ttf</string>
+		<string>Ballet.ttf</string>
+		<string>ArchitectsDaughter-Regular.ttf</string>
+		<string>AkayaTelivigala-Regular.ttf</string>
+		<string>DancingScript-Bold.ttf</string>
+		<string>FjallaOne-Regular.ttf</string>
+		<string>LongCang-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

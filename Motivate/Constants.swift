@@ -12,6 +12,14 @@ enum FontName: String {
     case regular = "JosefinSans-Regular"
     case medium = "JosefinSans-Medium"
     case bold = "JosefinSans-Bold"
+    
+    // Quote fonts
+    case architect = "ArchitectsDaughter-Regular"
+    case ballet = "Ballet"
+    case akaya = "AkayaTelivigala-Regular"
+    case dancingScript = "DancingScript-Bold"
+    case fjalla = "FjallaOne-Regular"
+    case longCang = "LongCang-Regular"
 }
 
 enum Padding {
