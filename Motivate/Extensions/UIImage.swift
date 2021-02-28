@@ -13,7 +13,13 @@ import SwiftUI
 enum FilterType {
     case blur(radius: NSNumber)
     case chrome
-    case median
+    case fade
+    case instant
+    case mono
+    case noir
+    case process
+    case tonal
+    case transfer
     
     var name: String {
         switch self {
@@ -21,8 +27,20 @@ enum FilterType {
             return "CIGaussianBlur"
         case .chrome:
             return "CIPhotoEffectChrome"
-        case .median:
-            return "CIMedianFilter"
+        case .fade:
+            return "CIPhotoEffectFade"
+        case .instant:
+            return "CIPhotoEffectInstant"
+        case .mono:
+            return "CIPhotoEffectMono"
+        case .noir:
+            return "CIPhotoEffectNoir"
+        case .process:
+            return "CIPhotoEffectProcess"
+        case .tonal:
+            return "CIPhotoEffectTonal"
+        case .transfer:
+            return "CIPhotoEffectTransfer"
         }
     }
     
@@ -30,16 +48,19 @@ enum FilterType {
         switch self {
         case .blur(let radius):
             return [kCIInputRadiusKey : radius]
-        case .chrome:
-            return nil
-        case .median:
+        default:
             return nil
         }
+    }
+    
+    static func randomPhotoEffect() -> FilterType? {
+        let photoEffects: [FilterType] = [.chrome, .fade, .instant, .mono, .noir, .process, .tonal, .transfer]
+        return photoEffects.randomElement()
     }
 }
 
 extension UIImage {
-    func addFilter(type: FilterType) -> UIImage? {
+    func addFilter(type: FilterType, addBlur: Bool = false) -> UIImage? {
         let ciContext = CIContext()
         let ciInput = CIImage(image: self)
         

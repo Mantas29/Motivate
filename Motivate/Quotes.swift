@@ -33,8 +33,6 @@ class Quotes {
     }
     
     static func randomFont() -> FontName {
-        let a = quoteFonts.randomElement()!
-        print(a)
-        return a
+        quoteFonts.randomElement()!
     }
 }

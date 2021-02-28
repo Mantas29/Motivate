@@ -22,7 +22,8 @@ class MotivationGeneratorManager: ObservableObject {
     
     func processImage() {
         if let image = originalImage {
-            processedImage = image.addFilter(type: .median)
+            processedImage = image.addFilter(type: FilterType.randomPhotoEffect() ?? .chrome)?
+                .addFilter(type: .blur(radius: 4))
             currentQuote = Quotes.randomQuoteText()
         }
     }

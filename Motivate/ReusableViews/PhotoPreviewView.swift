@@ -9,6 +9,7 @@ import SwiftUI
 
 private enum Const {
     static let cornerRadius: CGFloat = 20
+    static let fontSize: CGFloat = 34
 }
 
 struct PhotoPreviewView: View {
@@ -62,10 +63,13 @@ private struct ImageWithQuoteView: View {
             
             if let quote = quote {
                 Text(quote)
-                    .font(Quotes.randomFont(), size: 26)
+                    .font(Quotes.randomFont(), size: Const.fontSize)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.5)
                     .setSmallPadding(.all)
+                    .cornerRadius(6)
+                    .background(Color.black.opacity(0.3).blur(radius: 10))
             }
         }
         .setExtraSmallPadding(.all)
