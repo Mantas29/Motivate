@@ -176,6 +176,7 @@
 		A4F03B6C25E41DAE00B6FE7F = {
 			isa = PBXGroup;
 			children = (
+				A4B5A695267119830099FADA /* Podfile */,
 				A4F03B7725E41DAE00B6FE7F /* Motivate */,
 				A4F03B7625E41DAE00B6FE7F /* Products */,
 				96AA387449AC050E812E2421 /* Pods */,
@@ -194,7 +195,6 @@
 		A4F03B7725E41DAE00B6FE7F /* Motivate */ = {
 			isa = PBXGroup;
 			children = (
-				A4B5A695267119830099FADA /* Podfile */,
 				A42B90FE25E6CFAF00E194B8 /* Representables */,
 				A42B90CB25E64DCA00E194B8 /* ViewModels */,
 				A4F0DA6525E550BE006CCAA8 /* Views */,
