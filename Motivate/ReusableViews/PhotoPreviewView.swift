@@ -35,6 +35,7 @@ struct PhotoPreviewView: View {
             }
             
             InspireButton()
+            LabelImageButton()
             
             Spacer()
         }
@@ -86,6 +87,19 @@ private struct InspireButton: View {
         }, label: {
             Text("Inspire Me!")
         }).buttonStyle(MainButtonStyle(color: .myRed))
+    }
+}
+
+private struct LabelImageButton: View {
+    
+    let generator = MotivationGeneratorManager.shared
+    
+    var body: some View {
+        Button(action: {
+            generator.labelImage()
+        }, label: {
+            Text("Label My Image!")
+        }).buttonStyle(MainButtonStyle(color: .myGreen))
     }
 }
 

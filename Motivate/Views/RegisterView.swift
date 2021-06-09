@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RegisterView: View {
     
-    @ObservedObject var loginManager: UserLoginManager
+    @EnvironmentObject var loginManager: UserLoginManager
+    @ObservedObject var keyboardResponder = KeyboardResponder()
     
     @State private var email = ""
     @State private var password = ""
@@ -19,8 +20,12 @@ struct RegisterView: View {
         ZStack {
             MainBackground()
             VStack(spacing: Padding.small) {
-                Text("Register")
-                    .setTitleStyle()
+                
+                if !keyboardResponder.keyboardActive {
+                    Text("Register")
+                        .setTitleStyle()
+                }
+                
                 Spacer()
                 TextField("Email", text: $email)
                     .keyboardType(.emailAddress)
@@ -52,6 +57,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView(loginManager: UserLoginManager())
+        RegisterView()
     }
 }

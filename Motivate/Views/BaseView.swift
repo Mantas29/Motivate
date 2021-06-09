@@ -17,7 +17,7 @@ struct BaseView: View {
             if loginManager.isLoggedIn {
                 MainView()
             } else {
-                LoginView(loginManager: loginManager)
+                LoginView()
             }
             
             if baseViewModel.shouldShowMessage {
@@ -25,7 +25,7 @@ struct BaseView: View {
                     .zIndex(1)
                     .transition(.move(edge: .top))
             }
-        }
+        }.environmentObject(loginManager)
     }
 }
 

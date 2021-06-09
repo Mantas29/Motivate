@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var model = TabBarViewModel()    
-    
+    @EnvironmentObject var userLoginManager: UserLoginManager
+    @ObservedObject var model = TabBarViewModel()
     @ObservedObject var generator = MotivationGeneratorManager.shared
         
     var body: some View {
@@ -23,13 +23,20 @@ struct MainView: View {
                 } else {
                     switch model.selectedTabItem {
                     case .home:
-                        Text("HOME")
+                        HomeView()
                     case .library:
-                        Text("LIBRARY")
+                        LibraryView()
                     case .friends:
                         Text("FRIENDS")
                     case .settings:
-                        Text("SETTINGS")
+                        VStack {
+                            Text("SETTINGS")
+                            Button(action: {
+                                userLoginManager.signOut()
+                            }, label: {
+                                Text("Click here to sign out")
+                            })
+                        }
                     }
                 }
             }

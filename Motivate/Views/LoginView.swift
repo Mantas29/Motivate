@@ -9,73 +9,89 @@ import SwiftUI
 
 struct LoginView: View {
     
-    var loginManager: UserLoginManager
-    @State private var email = ""
-    @State private var password = ""
-    
-    @State private var showRegisterSheet = false
+    @ObservedObject private var keyboardResponder = KeyboardResponder()
     
     var body: some View {
         ZStack {
             MainBackground()
             
-            VStack(spacing: Padding.small) {
-                Text("Welcome to Meditate")
-                    .foregroundColor(.myRed)
-                    .font(.bold, size: 30)
-                Spacer()
-                Text("LOGIN")
-                    .setTitleStyle()
-                TextField("Email", text: $email)
-                    .keyboardType(.emailAddress)
-                SecureField("Password", text: $password)
-                    .textContentType(.password)
-                    
-                HStack {
-                    Button(action: {
-                        loginManager.signIn(email: email, password: password)
-                    }, label: {
-                        Text("Sign in")
-                    }).buttonStyle(MainButtonStyle(color: .myGreen))
-                    
-                    Button(action: {
-                        showRegisterSheet = true
-                    }, label: {
-                        Text("Register")
-                    }).buttonStyle(MainButtonStyle(color: .myRed))
+            VStack{
+                if !keyboardResponder.keyboardActive {
+                    Title()
                 }
-                
-                Button(action: {
-                    loginManager.resetPassword(email: email)
-                }, label: {
-                    Text("Forgot your password?")
-                        .foregroundColor(.blue)
-                        .setCaptionStyle()
-                })
-                
-                Button(action: {
-                    loginManager.facebookLogin()
-                }, label: {
-                    Text("Login with Facebook")
-                }).buttonStyle(FacebookButtonStyle())
-                
+                Spacer()
+                Content()
                 Spacer()
             }
-            .textFieldStyle(MainTextFieldStyle())
             .setRegularPadding(.all)
-            .ignoresSafeArea(.keyboard)
         }
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
+    }
+}
+
+private struct Title: View {
+    var body: some View {
+        Text("Welcome to Meditate")
+            .foregroundColor(.myRed)
+            .font(.bold, size: 30)
+    }
+}
+
+private struct Content: View {
+    
+    @EnvironmentObject var loginManager: UserLoginManager
+    @State private var email = ""
+    @State private var password = ""
+    @State private var showRegisterSheet = false
+    
+    var body: some View {
+        VStack(spacing: Padding.small) {
+            Text("LOGIN")
+                .setTitleStyle()
+            TextField("Email", text: $email)
+                .keyboardType(.emailAddress)
+            SecureField("Password", text: $password)
+                .textContentType(.password)
+                
+            HStack {
+                Button(action: {
+                    loginManager.signIn(email: email, password: password)
+                }, label: {
+                    Text("Sign in")
+                }).buttonStyle(MainButtonStyle(color: .myGreen))
+                
+                Button(action: {
+                    showRegisterSheet = true
+                }, label: {
+                    Text("Register")
+                }).buttonStyle(MainButtonStyle(color: .myRed))
+            }
+            
+            Button(action: {
+                loginManager.resetPassword(email: email)
+            }, label: {
+                Text("Forgot your password?")
+                    .foregroundColor(.blue)
+                    .setCaptionStyle()
+            })
+            
+            Button(action: {
+                loginManager.facebookLogin()
+            }, label: {
+                Text("Login with Facebook")
+            }).buttonStyle(FacebookButtonStyle())
+        }
+        .textFieldStyle(MainTextFieldStyle())
         .sheet(isPresented: $showRegisterSheet, content: {
-            RegisterView(loginManager: loginManager)
+            RegisterView()
         })
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loginManager: UserLoginManager())
+        LoginView()
     }
 }

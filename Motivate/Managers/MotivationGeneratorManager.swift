@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import UIKit
+import MLKit
 
 class MotivationGeneratorManager: ObservableObject {
     
@@ -25,6 +26,28 @@ class MotivationGeneratorManager: ObservableObject {
             processedImage = image.addFilter(type: FilterType.randomPhotoEffect() ?? .chrome)?
                 .addFilter(type: .blur(radius: 4))
             currentQuote = Quotes.randomQuoteText()
+        }
+    }
+    
+    func labelImage() {
+        guard let originalImage = originalImage else {
+            print("error")
+            return
+        }
+        let image = VisionImage(image: originalImage)
+        
+        let options = ImageLabelerOptions()
+        options.confidenceThreshold = 0.7
+        
+        let labeler = ImageLabeler.imageLabeler(options: options)
+        
+        labeler.process(image) { labels, error in
+            guard error == nil, let labels = labels else { return }
+            var myQuote = ""
+            for label in labels {
+                myQuote.append("\(label.text): \(String(format: "%.2f", label.confidence))\n")
+            }
+            self.currentQuote = myQuote
         }
     }
     

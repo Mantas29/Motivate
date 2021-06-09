@@ -26,6 +26,7 @@
 		A42B911E25E7049200E194B8 /* MotivationGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */; };
 		A42B914F25E7064900E194B8 /* PhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B914E25E7064900E194B8 /* PhotoPreviewView.swift */; };
 		A42B916425E8F68000E194B8 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42B916325E8F68000E194B8 /* Quotes.swift */; };
+		A42BD28C25FA2E0A00DF9F10 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42BD28B25FA2E0A00DF9F10 /* LibraryView.swift */; };
 		A452F7D525E904E500DDFB14 /* AkayaTelivigala-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452F7D425E904E500DDFB14 /* AkayaTelivigala-Regular.ttf */; };
 		A452F7D925E9053B00DDFB14 /* ArchitectsDaughter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A42B916725E8FF8700E194B8 /* ArchitectsDaughter-Regular.ttf */; };
 		A452F7E525E906B700DDFB14 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452F7E425E906B700DDFB14 /* DancingScript-Bold.ttf */; };
@@ -33,6 +34,9 @@
 		A452F7EB25E9192B00DDFB14 /* LongCang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A452F7EA25E9192B00DDFB14 /* LongCang-Regular.ttf */; };
 		A452F7F225E91FFC00DDFB14 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452F7F125E91FFC00DDFB14 /* UIImage.swift */; };
 		A452F7F525E935B800DDFB14 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452F7F425E935B800DDFB14 /* View.swift */; };
+		A452F82725EBFD5300DDFB14 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A452F82625EBFD5300DDFB14 /* KeyboardResponder.swift */; };
+		A47EC5CD25FA2AE10081A088 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47EC5CC25FA2AE10081A088 /* Networking.swift */; };
+		A4994F5225F52AB0007A92A4 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4994F5125F52AB0007A92A4 /* FirestoreManager.swift */; };
 		A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */; };
 		A4F03B7B25E41DAE00B6FE7F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */; };
 		A4F03B7D25E41DAF00B6FE7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F03B7C25E41DAF00B6FE7F /* Assets.xcassets */; };
@@ -70,12 +74,16 @@
 		A42B914E25E7064900E194B8 /* PhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewView.swift; sourceTree = "<group>"; };
 		A42B916325E8F68000E194B8 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		A42B916725E8FF8700E194B8 /* ArchitectsDaughter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArchitectsDaughter-Regular.ttf"; sourceTree = "<group>"; };
+		A42BD28B25FA2E0A00DF9F10 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		A452F7D425E904E500DDFB14 /* AkayaTelivigala-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkayaTelivigala-Regular.ttf"; sourceTree = "<group>"; };
 		A452F7E425E906B700DDFB14 /* DancingScript-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DancingScript-Bold.ttf"; sourceTree = "<group>"; };
 		A452F7E725E906F100DDFB14 /* FjallaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FjallaOne-Regular.ttf"; sourceTree = "<group>"; };
 		A452F7EA25E9192B00DDFB14 /* LongCang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LongCang-Regular.ttf"; sourceTree = "<group>"; };
 		A452F7F125E91FFC00DDFB14 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		A452F7F425E935B800DDFB14 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		A452F82625EBFD5300DDFB14 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		A47EC5CC25FA2AE10081A088 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		A4994F5125F52AB0007A92A4 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		A4F03B7525E41DAE00B6FE7F /* Motivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F03B7825E41DAE00B6FE7F /* MotivateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivateApp.swift; sourceTree = "<group>"; };
 		A4F03B7A25E41DAE00B6FE7F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -240,6 +248,9 @@
 			children = (
 				A4F0D8C525E53C6E0063F892 /* UserLoginManager.swift */,
 				A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */,
+				A452F82625EBFD5300DDFB14 /* KeyboardResponder.swift */,
+				A4994F5125F52AB0007A92A4 /* FirestoreManager.swift */,
+				A47EC5CC25FA2AE10081A088 /* Networking.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -252,6 +263,7 @@
 				A4F0DA6625E550D5006CCAA8 /* HomeView.swift */,
 				A42B90BB25E5857600E194B8 /* RegisterView.swift */,
 				A42B910D25E6F69E00E194B8 /* MainView.swift */,
+				A42BD28B25FA2E0A00DF9F10 /* LibraryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +288,7 @@
 				A4F03B7225E41DAE00B6FE7F /* Frameworks */,
 				A4F03B7325E41DAE00B6FE7F /* Resources */,
 				56B75CB7992F691F664A38AD /* [CP] Embed Pods Frameworks */,
+				F702731A72B569B169078895 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,6 +392,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Motivate/Pods-Motivate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F702731A72B569B169078895 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Motivate/Pods-Motivate-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Motivate/Pods-Motivate-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Motivate/Pods-Motivate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -401,6 +431,7 @@
 				A4F0D8C625E53C6E0063F892 /* UserLoginManager.swift in Sources */,
 				A42B90BF25E58AEA00E194B8 /* EnvironmentInfo.swift in Sources */,
 				A452F7F525E935B800DDFB14 /* View.swift in Sources */,
+				A4994F5225F52AB0007A92A4 /* FirestoreManager.swift in Sources */,
 				A42B910525E6E19200E194B8 /* TabBarView.swift in Sources */,
 				A42B910825E6E66300E194B8 /* Color.swift in Sources */,
 				A42B916425E8F68000E194B8 /* Quotes.swift in Sources */,
@@ -409,8 +440,11 @@
 				A42B90B925E57BDA00E194B8 /* Backgrounds.swift in Sources */,
 				A42B910E25E6F69E00E194B8 /* MainView.swift in Sources */,
 				A4F03B7925E41DAE00B6FE7F /* MotivateApp.swift in Sources */,
+				A452F82725EBFD5300DDFB14 /* KeyboardResponder.swift in Sources */,
 				A418A66925E513D200EAEB9D /* Align.swift in Sources */,
+				A47EC5CD25FA2AE10081A088 /* Networking.swift in Sources */,
 				A4F03B9825E4217700B6FE7F /* Constants.swift in Sources */,
+				A42BD28C25FA2E0A00DF9F10 /* LibraryView.swift in Sources */,
 				A4F0D90525E54EDD0063F892 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,7 +478,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -505,7 +539,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -540,6 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Motivate/Preview Content\"";
 				DEVELOPMENT_TEAM = K8852ZG89H;
@@ -563,6 +598,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Motivate/Preview Content\"";
 				DEVELOPMENT_TEAM = K8852ZG89H;

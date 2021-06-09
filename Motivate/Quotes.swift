@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Quote {
+struct Quote: Codable {
     let text: String
     var keywords: [String] = []
 }
 
 class Quotes {
 
-    private static let quoteList: [Quote] = [
+    static let quoteList: [Quote] = [
         Quote(text: "Age is an issue of mind over matter. If you don't mind, it doesn't matter."),
         Quote(text: "Anyone who stops learning is old, whether at twenty or eighty. Anyone who keeps learning stays young. The greatest thing in life is to keep your mind young."),
         Quote(text: "Wrinkles should merely indicate where smiles have been."),

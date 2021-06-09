@@ -15,7 +15,7 @@ class BaseViewModel: ObservableObject {
     static var shared = BaseViewModel()
     
     @Published private(set) var shouldShowMessage = false
-    var messageView: MessageView?
+    private(set) var messageView: MessageView?
     
     func showMessage(type: MessageView.MessageType, message: String) {
         
