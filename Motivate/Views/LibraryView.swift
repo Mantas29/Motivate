@@ -9,11 +9,7 @@ import SwiftUI
 
 struct LibraryView: View {
     var body: some View {
-        Button(action: {
-            Networking.request()
-        }, label: {
-            Text("Make HTTP request")
-        })
+        Text("Library View")
     }
 }
 

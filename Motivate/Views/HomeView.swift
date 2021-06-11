@@ -14,10 +14,13 @@ struct HomeView: View {
     var body: some View {
         VStack {
             Button(action: {
-                let quotes = Quotes.quoteList
-                let firestoreManager = FirestoreManager()
-                for quote in quotes {
-                    firestoreManager.addQuote(quote: quote)
+                Networking.addQuoteRequest(Quote(text: "SOMETHING TEXT", keywords: [.airplane, .aquarium])) { result in
+                    switch result {
+                    case .success:
+                        BaseViewModel.shared.showMessage(type: .success, message: "Quote added to database")
+                    case .failure(let error):
+                        BaseViewModel.shared.showMessage(type: .failed, message: error.message ?? "Something went wrong")
+                    }
                 }
             }, label: {
                 Text("Add quotes to database")
