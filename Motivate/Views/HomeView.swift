@@ -12,32 +12,23 @@ struct HomeView: View {
     @State private var quoteList: [Quote] = []
     
     var body: some View {
-        VStack {
+        VStack(spacing: 100) {
+            
             Button(action: {
-                Networking.addQuoteRequest(Quote(text: "SOMETHING TEXT", keywords: [.airplane, .aquarium])) { result in
-                    switch result {
-                    case .success:
-                        BaseViewModel.shared.showMessage(type: .success, message: "Quote added to database")
-                    case .failure(let error):
-                        BaseViewModel.shared.showMessage(type: .failed, message: error.message ?? "Something went wrong")
+                Quotes.quoteList.forEach {
+                    Networking.addQuoteRequest($0) { result in
+                        switch result {
+                        case .success:
+                            print("added")
+                        case .failure(let error):
+                            BaseViewModel.shared.showMessage(type: .failed, message: error.localizedDescription ?? "Something went wrong")
+                        }
                     }
                 }
             }, label: {
                 Text("Add quotes to database")
             })
             
-            Button(action: {
-                let firestoreManager = FirestoreManager()
-                firestoreManager.getQuotes { quotes in
-                    quoteList = quotes
-                }
-            }, label: {
-                Text("Get quotes from database")
-            })
-            
-            ForEach(quoteList, id: \.text) { quote in
-                Text(quote.text)
-            }
         }
     }
 }

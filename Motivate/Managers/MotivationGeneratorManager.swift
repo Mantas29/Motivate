@@ -18,6 +18,7 @@ class MotivationGeneratorManager: ObservableObject {
     
     @Published private(set) var processedImage: UIImage?
     @Published private(set) var currentQuote: String?
+    @Published private(set) var isLoading = false
     
     @Published var showPhotoPreview = false
     
@@ -37,17 +38,20 @@ class MotivationGeneratorManager: ObservableObject {
         let image = VisionImage(image: originalImage)
         
         let options = ImageLabelerOptions()
-        options.confidenceThreshold = 0.7
+        options.confidenceThreshold = 0.6
         
         let labeler = ImageLabeler.imageLabeler(options: options)
         
         labeler.process(image) { labels, error in
             guard error == nil, let labels = labels else { return }
-            var myQuote = ""
-            for label in labels {
-                myQuote.append("\(label.text): \(String(format: "%.2f", label.confidence))\n")
+            Networking.getQuoteRequest(imageLabels: labels) { [weak self] result in
+                switch result {
+                case .success(let quote):
+                    self?.currentQuote = quote
+                case .failure(let error):
+                    BaseViewModel.shared.showMessage(type: .failed, message: error.localizedDescription)
+                }
             }
-            self.currentQuote = myQuote
         }
     }
     
