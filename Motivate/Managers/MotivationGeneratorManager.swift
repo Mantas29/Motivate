@@ -30,11 +30,14 @@ class MotivationGeneratorManager: ObservableObject {
         }
     }
     
-    func labelImage() {
+    func generateQuote() {
         guard let originalImage = originalImage else {
             print("error")
             return
         }
+        
+        isLoading = true
+        
         let image = VisionImage(image: originalImage)
         
         let options = ImageLabelerOptions()
@@ -42,9 +45,18 @@ class MotivationGeneratorManager: ObservableObject {
         
         let labeler = ImageLabeler.imageLabeler(options: options)
         
-        labeler.process(image) { labels, error in
-            guard error == nil, let labels = labels else { return }
+        labeler.process(image) { [weak self] labels, error in
+            if let err = error {
+                self?.isLoading = false
+                BaseViewModel.shared.showMessage(type: .failed, message: err.localizedDescription)
+                return
+            }
+            guard error == nil, let labels = labels else {
+                self?.isLoading = false
+                return
+            }
             Networking.getQuoteRequest(imageLabels: labels) { [weak self] result in
+                self?.isLoading = false
                 switch result {
                 case .success(let quote):
                     self?.currentQuote = quote

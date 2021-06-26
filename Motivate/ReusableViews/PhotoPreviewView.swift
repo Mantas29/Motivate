@@ -24,18 +24,20 @@ struct PhotoPreviewView: View {
             
             CloseButton(tapAction: closeAction)
             
-            if let uiImage = generator.processedImage {
-                ImageWithQuoteView(uiImage: uiImage,
-                                   quote: generator.currentQuote)
-            }
-            else if let uiImage = generator.originalImage {
-                ImageWithQuoteView(uiImage: uiImage)
-            } else {
-                ProgressView()
+            ZStack {
+                if let uiImage = generator.processedImage {
+                    ImageWithQuoteView(uiImage: uiImage,
+                                       quote: generator.currentQuote)
+                }
+                else if let uiImage = generator.originalImage {
+                    ImageWithQuoteView(uiImage: uiImage)
+                }
+                if generator.isLoading {
+                    ProgressView()
+                }
             }
             
-            InspireButton()
-            LabelImageButton()
+            InspireMeButton()
             
             Spacer()
         }
@@ -77,28 +79,15 @@ private struct ImageWithQuoteView: View {
     }
 }
 
-private struct InspireButton: View {
+private struct InspireMeButton: View {
     
     let generator = MotivationGeneratorManager.shared
     
     var body: some View {
         Button(action: {
-            generator.processImage()
+            generator.generateQuote()
         }, label: {
-            Text("Inspire Me!")
-        }).buttonStyle(MainButtonStyle(color: .myRed))
-    }
-}
-
-private struct LabelImageButton: View {
-    
-    let generator = MotivationGeneratorManager.shared
-    
-    var body: some View {
-        Button(action: {
-            generator.labelImage()
-        }, label: {
-            Text("Label My Image!")
+            Text("Inspire me!")
         }).buttonStyle(MainButtonStyle(color: .myGreen))
     }
 }
