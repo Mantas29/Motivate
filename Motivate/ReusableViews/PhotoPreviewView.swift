@@ -33,7 +33,7 @@ struct PhotoPreviewView: View {
                     ImageWithQuoteView(uiImage: uiImage)
                 }
                 if generator.isLoading {
-                    ProgressView()
+                    LoadingIndicator()
                 }
             }
             
@@ -49,6 +49,17 @@ struct PhotoPreviewView: View {
         .setRegularPadding(.vertical)
         .addDragToCloseGesture(yOffset: $yOffset,
                                closeAction: closeAction)
+    }
+}
+
+private struct LoadingIndicator: View {
+    var body: some View {
+        ProgressView()
+            .scaleEffect(3, anchor: .center)
+            .setBigPadding(.all)
+            .background(Color.white.opacity(0.4))
+            .cornerRadius(Const.cornerRadius)
+            .progressViewStyle(CircularProgressViewStyle(tint: Color.black))
     }
 }
 
