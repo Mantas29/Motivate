@@ -14,7 +14,7 @@ private enum Const {
 
 struct PhotoPreviewView: View {
     
-    @ObservedObject private var generator = MotivationGeneratorManager.shared
+    @State private var isLoading = false
     
     @State private var yOffset = CGFloat.zero
     let closeAction: () -> Void
@@ -25,19 +25,15 @@ struct PhotoPreviewView: View {
             CloseButton(tapAction: closeAction)
             
             ZStack {
-                if let uiImage = generator.processedImage {
-                    ImageWithQuoteView(uiImage: uiImage,
-                                       quote: generator.currentQuote)
-                }
-                else if let uiImage = generator.originalImage {
-                    ImageWithQuoteView(uiImage: uiImage)
-                }
-                if generator.isLoading {
+                MotivationView()
+                
+                if isLoading {
                     LoadingIndicator()
                 }
             }
             
             InspireMeButton()
+            ShareButton()
             
             Spacer()
         }
@@ -49,6 +45,25 @@ struct PhotoPreviewView: View {
         .setRegularPadding(.vertical)
         .addDragToCloseGesture(yOffset: $yOffset,
                                closeAction: closeAction)
+        .onReceive(MotivationGeneratorManager.shared.$isLoading) { isLoading in
+            self.isLoading = isLoading
+        }
+    }
+}
+
+private struct MotivationView: View {
+    
+    @ObservedObject private var generator = MotivationGeneratorManager.shared
+    
+    var body: some View {
+        if let uiImage = generator.processedImage {
+            ImageWithQuoteView(uiImage: uiImage,
+                               fontName: generator.fontName,
+                               quote: generator.currentQuote)
+        }
+        else if let uiImage = generator.originalImage {
+            ImageWithQuoteView(uiImage: uiImage)
+        }
     }
 }
 
@@ -66,6 +81,7 @@ private struct LoadingIndicator: View {
 private struct ImageWithQuoteView: View {
     
     let uiImage: UIImage
+    var fontName: FontName?
     var quote: String?
     
     var body: some View {
@@ -77,10 +93,10 @@ private struct ImageWithQuoteView: View {
             
             if let quote = quote {
                 Text(quote)
-                    .font(Quotes.randomFont(), size: Const.fontSize)
+                    .font(fontName ?? Quotes.randomFont(), size: Const.fontSize)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.4)
                     .setSmallPadding(.all)
                     .cornerRadius(6)
                     .background(Color.black.opacity(0.3).blur(radius: 10))
@@ -91,15 +107,32 @@ private struct ImageWithQuoteView: View {
 }
 
 private struct InspireMeButton: View {
+        
+    var body: some View {
+        Button(action: {
+            MotivationGeneratorManager.shared.generateQuote()
+        }, label: {
+            Text("Inspire me!")
+        }).buttonStyle(MainButtonStyle(color: .myGreen))
+    }
+}
+
+private struct ShareButton: View {
     
     let generator = MotivationGeneratorManager.shared
     
     var body: some View {
         Button(action: {
-            generator.generateQuote()
+            showShareSheet()
         }, label: {
-            Text("Inspire me!")
-        }).buttonStyle(MainButtonStyle(color: .myGreen))
+            Text("Share")
+        })
+        .buttonStyle(MainButtonStyle(color: .myCyan))
+    }
+    
+    func showShareSheet() {
+        let activityVC = UIActivityViewController(activityItems: [MotivationView().snapshot()], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }
 }
 

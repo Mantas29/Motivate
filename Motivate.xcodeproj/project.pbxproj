@@ -50,6 +50,7 @@
 		A4F0D8D625E545A70063F892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4F0D8D525E545A70063F892 /* GoogleService-Info.plist */; };
 		A4F0D90525E54EDD0063F892 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0D90425E54EDD0063F892 /* BaseView.swift */; };
 		A4F0DA6725E550D5006CCAA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0DA6625E550D5006CCAA8 /* HomeView.swift */; };
+		B75F7DCE2694EDD600040FF3 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F7DCD2694EDD600040FF3 /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		A4F0D8D525E545A70063F892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4F0D90425E54EDD0063F892 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		A4F0DA6625E550D5006CCAA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B75F7DCD2694EDD600040FF3 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A42B90FF25E6CFCE00E194B8 /* ImagePicker.swift */,
+				B75F7DCD2694EDD600040FF3 /* ShareSheet.swift */,
 			);
 			path = Representables;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			files = (
 				A42B910B25E6F5D800E194B8 /* TabBarViewModel.swift in Sources */,
 				A42B90C225E59B0B00E194B8 /* UIApplication.swift in Sources */,
+				B75F7DCE2694EDD600040FF3 /* ShareSheet.swift in Sources */,
 				A42B90BC25E5857600E194B8 /* RegisterView.swift in Sources */,
 				A4F0DA6725E550D5006CCAA8 /* HomeView.swift in Sources */,
 				A42B914F25E7064900E194B8 /* PhotoPreviewView.swift in Sources */,

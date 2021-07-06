@@ -18,17 +18,10 @@ class MotivationGeneratorManager: ObservableObject {
     
     @Published private(set) var processedImage: UIImage?
     @Published private(set) var currentQuote: String?
+    @Published private(set) var fontName: FontName?
     @Published private(set) var isLoading = false
     
     @Published var showPhotoPreview = false
-    
-    func processImage() {
-        if let image = originalImage {
-            processedImage = image.addFilter(type: FilterType.randomPhotoEffect() ?? .chrome)?
-                .addFilter(type: .blur(radius: 4))
-            currentQuote = Quotes.randomQuoteText()
-        }
-    }
     
     func generateQuote() {
         guard let originalImage = originalImage else {
@@ -60,6 +53,8 @@ class MotivationGeneratorManager: ObservableObject {
                 switch result {
                 case .success(let quote):
                     self?.currentQuote = quote
+                    self?.fontName = Quotes.randomFont()
+                    self?.processImage()
                 case .failure(let error):
                     BaseViewModel.shared.showMessage(type: .failed, message: error.localizedDescription)
                 }
@@ -73,6 +68,13 @@ class MotivationGeneratorManager: ObservableObject {
         currentQuote = nil
         withAnimation(.spring()) {
             showPhotoPreview = true
+        }
+    }
+    
+    private func processImage() {
+        if let image = originalImage {
+            processedImage = image.addFilter(type: FilterType.randomPhotoEffect() ?? .chrome)?
+                .addFilter(type: .blur(radius: 4))
         }
     }
 }

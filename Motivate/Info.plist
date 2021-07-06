@@ -89,5 +89,7 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Motivate would like to user camera in order to create inspirational photos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
 </dict>
 </plist>
