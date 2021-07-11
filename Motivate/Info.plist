@@ -90,6 +90,6 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Motivate would like to user camera in order to create inspirational photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>Motivate would like to access you photo library</string>
 </dict>
 </plist>

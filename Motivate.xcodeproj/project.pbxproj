@@ -212,7 +212,6 @@
 				A4F03B8A25E41FC700B6FE7F /* Resources */,
 				A4F03B7E25E41DAF00B6FE7F /* Preview Content */,
 				A4F03B9725E4217700B6FE7F /* Constants.swift */,
-				A42B90BE25E58AEA00E194B8 /* EnvironmentInfo.swift */,
 				A42B916325E8F68000E194B8 /* Quotes.swift */,
 			);
 			path = Motivate;
@@ -252,6 +251,7 @@
 		A4F0D8C425E53C610063F892 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				A42B90BE25E58AEA00E194B8 /* EnvironmentInfo.swift */,
 				A4F0D8C525E53C6E0063F892 /* UserLoginManager.swift */,
 				A42B911D25E7049200E194B8 /* MotivationGeneratorManager.swift */,
 				A452F82625EBFD5300DDFB14 /* KeyboardResponder.swift */,

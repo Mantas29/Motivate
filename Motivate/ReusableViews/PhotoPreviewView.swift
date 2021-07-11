@@ -26,6 +26,7 @@ struct PhotoPreviewView: View {
             
             ZStack {
                 MotivationView()
+                    .setExtraSmallPadding(.all)
                 
                 if isLoading {
                     LoadingIndicator()
@@ -55,11 +56,22 @@ private struct MotivationView: View {
     
     @ObservedObject private var generator = MotivationGeneratorManager.shared
     
+    var addWatermark = false
+    
     var body: some View {
         if let uiImage = generator.processedImage {
-            ImageWithQuoteView(uiImage: uiImage,
-                               fontName: generator.fontName,
-                               quote: generator.currentQuote)
+            ZStack {
+                ImageWithQuoteView(uiImage: uiImage,
+                                   fontName: generator.fontName,
+                                   quote: generator.currentQuote)
+                if addWatermark {
+                    Text("Created with 'Motivate'")
+                        .font(.akaya, size: 16)
+                        .foregroundColor(.white)
+                        .setSmallPadding(.all)
+                        .align(.bottom, .trailing)
+                }
+            }
         }
         else if let uiImage = generator.originalImage {
             ImageWithQuoteView(uiImage: uiImage)
@@ -88,7 +100,7 @@ private struct ImageWithQuoteView: View {
         ZStack {
             Image(uiImage: uiImage)
                 .resizable()
-                .scaledToFit()
+                .aspectRatio(contentMode: .fit)
                 .cornerRadius(Const.cornerRadius)
             
             if let quote = quote {
@@ -102,7 +114,6 @@ private struct ImageWithQuoteView: View {
                     .background(Color.black.opacity(0.3).blur(radius: 10))
             }
         }
-        .setExtraSmallPadding(.all)
     }
 }
 
@@ -130,9 +141,15 @@ private struct ShareButton: View {
         .buttonStyle(MainButtonStyle(color: .myCyan))
     }
     
-    func showShareSheet() {
-        let activityVC = UIActivityViewController(activityItems: [MotivationView().snapshot()], applicationActivities: nil)
+    private func showShareSheet() {
+        let activityVC = UIActivityViewController(activityItems: [sharedImage], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+    }
+    
+    private var sharedImage: UIImage {
+        MotivationView(addWatermark: true)
+            .frame(width: EnvironmentInfo.screenWidth)
+            .snapshot()
     }
 }
 
