@@ -11,15 +11,34 @@ struct HomeView: View {
         
     var body: some View {
         ScrollView {
-            HomeItem(title: "Create an inspiration", imageName: "nature")
+            VStack {
+                HomeItem(title: createInspirationItem, imageName: "nature")
+                HomeItem(title: somethingElseItem, imageName: "nature2")
+            }
         }
         .setSmallPadding(.vertical)
     }
+    
+    private var createInspirationItem: some View {
+        Text("Create an inspiration")
+            .font(.dancingScript, size: 26)
+            .foregroundColor(.white)
+            .setBigPadding(.all)
+            .align(.bottom, .trailing)
+    }
+    
+    private var somethingElseItem: some View {
+        Text("Something else")
+            .font(.longCang, size: 34)
+            .foregroundColor(.white)
+            .setBigPadding(.all)
+            .align(.bottom, .leading)
+    }
 }
 
-private struct HomeItem: View {
+private struct HomeItem<Title: View>: View {
     
-    let title: String
+    let title: Title
     let imageName: String
     
     var body: some View {
@@ -27,16 +46,16 @@ private struct HomeItem: View {
             print("Clicked")
         } label: {
             ZStack {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(8)
-                Text(title)
-                    .font(.dancingScript, size: 26)
-                    .foregroundColor(.white)
-                    .setBigPadding(.all)
-                    .align(.bottom, .trailing)
+                GeometryReader { geometry in
+                    Image(imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: 200)
+                        .cornerRadius(8)
+                }
+                title
             }
+            .frame(height: 200)
             .setSmallPadding(.horizontal)
         }
         .buttonStyle(PlainButtonStyle())
