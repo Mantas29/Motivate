@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var mainViewModel: MainViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
     
     @State private var presentSourceTypeActionSheet = false
         
@@ -85,6 +85,6 @@ private struct HomeItem<Title: View>: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(mainViewModel: MainViewModel())
+        HomeView()
     }
 }

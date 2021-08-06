@@ -61,16 +61,4 @@ class TabBarViewModel: ObservableObject {
     @Published var tabBarHeight: CGFloat = 0
     @Published var cameraClicked = false
     @Published var tabBarIsActive = true
-    
-    private var generatorImageObserver: AnyCancellable?
-    
-    init() {
-        setObservers()
-    }
-    
-    private func setObservers() {
-        generatorImageObserver = MotivationGeneratorManager.shared.$showPhotoPreview.sink { [weak self] show in
-            self?.tabBarIsActive = !show
-        }
-    }
 }

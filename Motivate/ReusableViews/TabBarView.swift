@@ -13,20 +13,21 @@ private enum Const {
 
 struct TabBarView: View {
     
-    var model: TabBarViewModel
-    var mainViewModel: MainViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
+    
+    let tabBarViewModel: TabBarViewModel
     
     var body: some View {
         ZStack {
             HStack {
-                ItemView(tabItem: .home, model: model)
+                ItemView(tabItem: .home, model: tabBarViewModel)
                 Spacer()
-                ItemView(tabItem: .library, model: model)
+                ItemView(tabItem: .library, model: tabBarViewModel)
                 Spacer()
                     .frame(width: Const.photoButtonSize * 1.7)
-                ItemView(tabItem: .friends, model: model)
+                ItemView(tabItem: .friends, model: tabBarViewModel)
                 Spacer()
-                ItemView(tabItem: .settings, model: model)
+                ItemView(tabItem: .settings, model: tabBarViewModel)
             }
             .setSmallPadding(.horizontal)
             .setExtraSmallPadding(.top)
@@ -34,22 +35,24 @@ struct TabBarView: View {
             .background(Color(hex: "c7eae4")
                             .overlay(GeometryReader { geometry in
                                 Color.clear.onAppear {
-                                    model.tabBarHeight = geometry.size.height
+                                    tabBarViewModel.tabBarHeight = geometry.size.height
                                 }
                             })
                             .edgesIgnoringSafeArea(.bottom))
             
-            PhotoButton(mainViewModel: mainViewModel)
+            PhotoButton()
                 .offset(y: -Const.photoButtonSize * 0.3)
         }
         .align(.bottom)
+        .onReceive(mainViewModel.$presentPhotoPreview) { isPresented in
+            tabBarViewModel.tabBarIsActive = !isPresented
+        }
     }
 }
 
 private struct PhotoButton: View {
         
-    @ObservedObject var generator = MotivationGeneratorManager.shared
-    @ObservedObject var mainViewModel: MainViewModel
+    @EnvironmentObject var mainViewModel: MainViewModel
     @State private var showAlert = false
     
     var body: some View {
@@ -65,9 +68,9 @@ private struct PhotoButton: View {
             .overlay(Circle()
                         .stroke(Color.myRed, lineWidth: 2)
                         .padding(5)
-                        .opacity(generator.showPhotoPreview ? 0.8 : 0))
+                        .opacity(mainViewModel.presentPhotoPreview ? 0.8 : 0))
             .onTapGesture {
-                if generator.showPhotoPreview {
+                if mainViewModel.presentPhotoPreview {
                     showAlert = true
                     return
                 }
@@ -124,6 +127,6 @@ private struct ItemView: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(model: TabBarViewModel(), mainViewModel: MainViewModel())
+        TabBarView(tabBarViewModel: TabBarViewModel())
     }
 }

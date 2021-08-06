@@ -10,6 +10,8 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     
     @Published var presentImagePicker = false
+    @Published var presentPhotoPreview = false
+    
     var currentImagePickerType: UIImagePickerController.SourceType = .photoLibrary
     
     func presentImagePicker(type: UIImagePickerController.SourceType) {

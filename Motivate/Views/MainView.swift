@@ -11,15 +11,14 @@ struct MainView: View {
     
     @EnvironmentObject var userLoginManager: UserLoginManager
     @ObservedObject var tabBarViewModel = TabBarViewModel()
-    @ObservedObject var model = MainViewModel()
-    @ObservedObject var generator = MotivationGeneratorManager.shared
+    @ObservedObject var mainViewModel = MainViewModel()
         
     var body: some View {
         ZStack {
             ZStack {
                 switch tabBarViewModel.selectedTabItem {
                 case .home:
-                    HomeView(mainViewModel: model)
+                    HomeView()
                 case .library:
                     LibraryView()
                 case .friends:
@@ -35,20 +34,22 @@ struct MainView: View {
                     }
                 }
                 
-                if generator.showPhotoPreview {
-                    PhotoPreviewView() { generator.showPhotoPreview = false }
+                if mainViewModel.presentPhotoPreview {
+                    PhotoPreviewView() { mainViewModel.presentPhotoPreview = false }
                         .zIndex(1)
                         .transition(.move(edge: .bottom))
                 }
             }
             .padding(.bottom, tabBarViewModel.tabBarHeight)
             
-            TabBarView(model: tabBarViewModel, mainViewModel: model)
+            TabBarView(tabBarViewModel: tabBarViewModel)
         }
         .ignoresSafeArea(.all, edges: .bottom)
-        .fullScreenCover(isPresented: $model.presentImagePicker, content: {
-            ImagePicker(sourceType: model.currentImagePickerType) { image in
-                generator.setImage(uiImage: image)
+        .environmentObject(mainViewModel)
+        .fullScreenCover(isPresented: $mainViewModel.presentImagePicker, content: {
+            ImagePicker(sourceType: mainViewModel.currentImagePickerType) { image in
+                MotivationGeneratorManager.shared.setImage(uiImage: image)
+                mainViewModel.presentPhotoPreview = true
             }
             .edgesIgnoringSafeArea(.all)
         })
