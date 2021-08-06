@@ -8,18 +8,38 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var mainViewModel: MainViewModel
+    
+    @State private var presentSourceTypeActionSheet = false
         
     var body: some View {
         ScrollView {
             VStack {
-                HomeItem(title: createInspirationItem, imageName: "nature")
-                HomeItem(title: somethingElseItem, imageName: "nature2")
+                HomeItem(title: createInspirationItemTitle, imageName: "nature") {
+                    presentSourceTypeActionSheet = true
+                }
+                HomeItem(title: somethingElseItemTitle, imageName: "nature2") {
+                    print("do something else")
+                }
             }
         }
         .setSmallPadding(.vertical)
+        .actionSheet(isPresented: $presentSourceTypeActionSheet) {
+            ActionSheet(title: Text("Choose the source of you picture"),
+                        buttons: [
+                            .default(Text("Camera roll"), action: {
+                                mainViewModel.presentImagePicker(type: .camera)
+                            }),
+                            .default(Text("Gallery"), action: {
+                                mainViewModel.presentImagePicker(type: .photoLibrary)
+                            }),
+                            .cancel()
+                        ])
+        }
     }
     
-    private var createInspirationItem: some View {
+    private var createInspirationItemTitle: some View {
         Text("Create an inspiration")
             .font(.dancingScript, size: 26)
             .foregroundColor(.white)
@@ -27,7 +47,7 @@ struct HomeView: View {
             .align(.bottom, .trailing)
     }
     
-    private var somethingElseItem: some View {
+    private var somethingElseItemTitle: some View {
         Text("Something else")
             .font(.longCang, size: 34)
             .foregroundColor(.white)
@@ -40,10 +60,11 @@ private struct HomeItem<Title: View>: View {
     
     let title: Title
     let imageName: String
+    let clickAction: () -> Void
     
     var body: some View {
         Button {
-            print("Clicked")
+            clickAction()
         } label: {
             ZStack {
                 GeometryReader { geometry in
@@ -64,6 +85,6 @@ private struct HomeItem<Title: View>: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(mainViewModel: MainViewModel())
     }
 }

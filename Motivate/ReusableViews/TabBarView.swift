@@ -14,6 +14,7 @@ private enum Const {
 struct TabBarView: View {
     
     var model: TabBarViewModel
+    var mainViewModel: MainViewModel
     
     var body: some View {
         ZStack {
@@ -38,7 +39,7 @@ struct TabBarView: View {
                             })
                             .edgesIgnoringSafeArea(.bottom))
             
-            PhotoButton(model: model)
+            PhotoButton(mainViewModel: mainViewModel)
                 .offset(y: -Const.photoButtonSize * 0.3)
         }
         .align(.bottom)
@@ -46,10 +47,9 @@ struct TabBarView: View {
 }
 
 private struct PhotoButton: View {
-    
-    var model: TabBarViewModel
-    
+        
     @ObservedObject var generator = MotivationGeneratorManager.shared
+    @ObservedObject var mainViewModel: MainViewModel
     @State private var showAlert = false
     
     var body: some View {
@@ -71,12 +71,12 @@ private struct PhotoButton: View {
                     showAlert = true
                     return
                 }
-                model.cameraClicked = true
+                mainViewModel.presentImagePicker(type: .camera)
             }
             .alert(isPresented: $showAlert, content: {
                 Alert(title: Text("Would you like to take another photo?"),
                       message: Text("Currently taken picture will be lost"),
-                      primaryButton: Alert.Button.default(Text("OK"), action: { model.cameraClicked = true }),
+                      primaryButton: Alert.Button.default(Text("OK"), action: { mainViewModel.presentImagePicker(type: .camera) }),
                       secondaryButton: Alert.Button.cancel()
             )})
     }
@@ -124,6 +124,6 @@ private struct ItemView: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(model: TabBarViewModel())
+        TabBarView(model: TabBarViewModel(), mainViewModel: MainViewModel())
     }
 }

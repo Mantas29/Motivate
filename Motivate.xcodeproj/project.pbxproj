@@ -50,6 +50,7 @@
 		A4F0D8D625E545A70063F892 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4F0D8D525E545A70063F892 /* GoogleService-Info.plist */; };
 		A4F0D90525E54EDD0063F892 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0D90425E54EDD0063F892 /* BaseView.swift */; };
 		A4F0DA6725E550D5006CCAA8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0DA6625E550D5006CCAA8 /* HomeView.swift */; };
+		B746B70426BDDD1E005B571E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746B70326BDDD1E005B571E /* MainViewModel.swift */; };
 		B75F7DCE2694EDD600040FF3 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F7DCD2694EDD600040FF3 /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		A4F0D8D525E545A70063F892 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4F0D90425E54EDD0063F892 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		A4F0DA6625E550D5006CCAA8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B746B70326BDDD1E005B571E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B75F7DCD2694EDD600040FF3 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 			children = (
 				A42B90CD25E64FB700E194B8 /* BaseViewModel.swift */,
 				A42B910A25E6F5D800E194B8 /* TabBarViewModel.swift */,
+				B746B70326BDDD1E005B571E /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				A4F03B9825E4217700B6FE7F /* Constants.swift in Sources */,
 				A42BD28C25FA2E0A00DF9F10 /* LibraryView.swift in Sources */,
 				A4F0D90525E54EDD0063F892 /* BaseView.swift in Sources */,
+				B746B70426BDDD1E005B571E /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
